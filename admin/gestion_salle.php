@@ -198,32 +198,34 @@ require_once('includeAdmin/header.php');
                 <option class="text-dark" value="france" <?= ($pays == 'france') ? 'selected' : "" ?>>France</option>
             </select>
     </div>
-    <div class="col-md-4 mt-3">
-        <label class="badge badge-dark text-dark" for="ville">Ville</label>
-            <select class="form-select" name="ville" id="ville">
-                <option value="">Choisissez la ville</option>
-                <option class="text-dark" value=" paris" <?= ($ville == 'paris') ? 'selected' : "" ?>>Paris</option>
-                <option class="text-dark" value=" lyon" <?= ($ville == 'lyon') ? 'selected' : "" ?>>Lyon</option>
-                <option class="text-dark" value=" marseille " <?= ($ville == 'marseille') ? 'selected' : "" ?>>Marseille</option>
-            </select>
-    
-    </div>
-
-
-    <div class="col-md-4">
-    <label class="form-label" for="photo"><div class="badge badge-dark text-dark mt-3">Photo</div></label>
-    <input class="form-control" type="file" name="photo" id="photo" placeholder="Photo">
-    </div>
-    <!-- ----------------- -->
-    <?php if(!empty($photo)): ?>
-        <div class="mt-4">
-            <p>Vous pouvez changer d'image
-                <img src="<?= URL . './img/' . $photo ?>" width="50px">
-            </p>
+    <div class="row mt-5 offset-2">
+        <div class="col-md-4 mt-3">
+            <label class="badge badge-dark text-dark" for="ville">Ville</label>
+                <select class="form-select" name="ville" id="ville">
+                    <option value="">Choisissez la ville</option>
+                    <option class="text-dark" value=" paris" <?= ($ville == 'paris') ? 'selected' : "" ?>>Paris</option>
+                    <option class="text-dark" value=" lyon" <?= ($ville == 'lyon') ? 'selected' : "" ?>>Lyon</option>
+                    <option class="text-dark" value=" marseille " <?= ($ville == 'marseille') ? 'selected' : "" ?>>Marseille</option>
+                </select>
+        
         </div>
-    <?php endif; ?>
-    <!-- ci-dessous, un input hidden (aucun besoin de l'afficher) pour récupérer la valeur dans le nouveau name "photoActuelle" pour l'envoyer via le form $_POST à la ligne 60 pour affecter $photo_bdd -->
-    <input type="hidden" name="photoActuelle" value="<?= $photo ?>">
+
+
+        <div class="col-md-4">
+        <label class="form-label" for="photo"><div class="badge badge-dark text-dark mt-3">Photo</div></label>
+        <input class="form-control" type="file" name="photo" id="photo" placeholder="Photo">
+        </div>
+        <!-- ----------------- -->
+        <?php if(!empty($photo)): ?>
+            <div class="mt-4">
+                <p>Vous pouvez changer d'image
+                    <img src="<?= URL . './img/' . $photo ?>" width="50px">
+                </p>
+            </div>
+        <?php endif; ?>
+        <!-- ci-dessous, un input hidden (aucun besoin de l'afficher) pour récupérer la valeur dans le nouveau name "photoActuelle" pour l'envoyer via le form $_POST à la ligne 60 pour affecter $photo_bdd -->
+        <input type="hidden" name="photoActuelle" value="<?= $photo ?>">
+    </div>
     <!-- -------------------- -->
 </div>
 
@@ -246,7 +248,7 @@ require_once('includeAdmin/header.php');
     </a>
 </div>
 
-<table class="table table-dark text-center">
+<table class="table text-center">
 <?php $afficheSalles = $pdo->query("SELECT * FROM salle ORDER BY id_salle ASC") ?>
     <thead>
         <tr>
@@ -268,17 +270,12 @@ require_once('includeAdmin/header.php');
                     <td><?= $value ?></td>
                 <?php endif ?>
             <?php endforeach ?>
-            <td><a href='?action=update&id_salle=<?= $salle['id_salle'] ?>'><i class="bi bi-pencil-square text-white" style="font-size: 1.5rem;"></i></a></td>
+            <td><a href='?action=update&id_salle=<?= $salle['id_salle'] ?>'><i class="bi bi-pencil-square text-dark" style="font-size: 1.5rem;"></i></a></td>
             <td><a data-href="?action=delete&id_salle=<?= $salle['id_salle'] ?>" data-toggle="modal" data-target="#confirm-delete"><i class="bi bi-trash text-danger" style="font-size: 1.5rem;"></i></a></td>
         </tr>
         <?php endwhile ?>
     </tbody>
 </table>
-
-<!-- <img class="img-fluid" src="" width="50"> -->
-
-<!-- <td><a href=''><i class="bi bi-pen-fill text-warning"></i></a></td>-->
-<!-- <td><a data-href="" data-toggle="modal" data-target="#confirm-delete"><i class="bi bi-trash-fill text-danger" style="font-size: 1.5rem;"></i></a></td> -->
 
 <!-- modal suppression codepen https://codepen.io/lowpez/pen/rvXbJq -->
 

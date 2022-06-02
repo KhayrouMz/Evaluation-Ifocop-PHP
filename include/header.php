@@ -48,7 +48,7 @@ require_once('init.php');
                 Espace
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="profil.php">Profil</a></li>
+                <li><a class="dropdown-item" href="<?= URL ?>profil.php">Profil</a></li>
                 <li><a class="dropdown-item" href="<?= URL ?>connexion.php?action=deconnexion">Déconnexion</a></li>
                 <li><a class="dropdown-item" href="#">Réservation</a></li>
             </ul>

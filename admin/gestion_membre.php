@@ -178,7 +178,7 @@ require_once('includeAdmin/header.php');
     </a>
 </div>
 
-<table class="table table-dark text-center">
+<table class="table text-center">
     <?php $afficheUsers = $pdo->query("SELECT * FROM membre ORDER BY pseudo ASC ") ?>
     <thead>
         <tr>
@@ -199,7 +199,7 @@ require_once('includeAdmin/header.php');
             <td><?= $value ?></td>
             <?php }
             } ?>
-            <td><a href='?action=update&id_membre=<?= $user['id_membre'] ?>'><i class="bi bi-pencil-square text-white" style="font-size: 1.5rem;"></i></a></td>
+            <td><a href='?action=update&id_membre=<?= $user['id_membre'] ?>'><i class="bi bi-pencil-square text-dark" style="font-size: 1.5rem;"></i></a></td>
             <td><a data-href="?action=delete&id_membre=<?= $user['id_membre'] ?>" data-toggle="modal" data-target="#confirm-delete"><i class="bi bi-trash text-danger" style="font-size: 1.5rem;"></i></a></td>
         </tr>
         <?php endwhile ?>

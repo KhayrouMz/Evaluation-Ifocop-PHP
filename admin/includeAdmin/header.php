@@ -28,9 +28,9 @@
               Menu Admin
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="gestion_membre.php">Gestion des membres</a></li>
-                <li><a class="dropdown-item" href="gestion_salle.php">Gestion des salles</a></li>
-                <li><a class="dropdown-item" href="#">Gestion des produits</a></li>
+                <li><a class="dropdown-item" href="<?= URL ?>admin/gestion_membre.php">Gestion des membres</a></li>
+                <li><a class="dropdown-item" href="<?= URL ?>admin/gestion_salle.php">Gestion des salles</a></li>
+                <li><a class="dropdown-item" href="<?= URL ?>admin/gestion_produit.php">Gestion des produits</a></li>
                 <li><a class="dropdown-item" href="#">Gestion des commandes</a></li>
             </ul>
           </div>
